@@ -1,0 +1,25 @@
+Este proyecto se ha empezado poniendo en la consola "@npm create vite@latest" pero en vez de seleccionar React hemos seleccionado 
+Vanilla y JavaScript.
+
+Una vez hecho esto y estar dentro de la ruta del proyecto instalamos el plugin de vite con el comando "npm install @vitejs/`lugin-react -E", 
+al tener ya el plugin en el paquete package.json no tenemos la dependencia de React para intarla pondremos "npm install react react-dom -E".
+
+Hecho todo esto crearemos el archivo "vite.config.js" y ponemos la configuración: 
+
+    import { defineConfig } from 'vite'
+    import react from '@vitejs/plugin-react'
+
+    export default defineConfig({
+    plugins: [react()]
+    })
+
+En el archivo "main.js" le cambiaremos el nombre a "main.jsx" para que sea de React y modificaremos el archivo importandole el react dom ya que
+este archivo es el primero que se va a cargar cuando iniciemos la pagina: 
+
+    import { createRoot } from 'react-dom/client'
+
+    const root = createRoot(document.getElementById('app'))
+
+    root.render(<h1>Hola</h1>)
+
+Al modificar este archivo tendremos que cambiarle a la ruta del script del index.html el nombre a main.jsx
